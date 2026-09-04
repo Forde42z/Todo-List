@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +16,15 @@
 
         <div class="todo-input-grid">
           <div class="input-wrap">
-            <input class="js-name-input name-input" placeholder="What needs to be done?">
+            <input type="text" class="js-name-input name-input" placeholder="What needs to be done?" aria-label="Todo name">
           </div>
           <div class="input-wrap">
-            <input type="date" class="js-due-date-input due-date-input">
+            <input type="date" class="js-due-date-input due-date-input" aria-label="Due date" required>
           </div>
-          <button class="add-todo-button js-add-todo-btn">Add</button>
+          <button type="button" class="add-todo-button js-add-todo-btn">Add</button>
         </div>
 
-        <div class="js-todo-list todo-grid"></div>
+        <div class="js-todo-list"></div>
 
         <div class="footer-hint">
           <span><kbd>↵</kbd> add</span>
@@ -33,7 +33,6 @@
         </div>
       </div>
     </div>
-
     <script src="12-todo-list.js"></script>
   </body>
 </html>
