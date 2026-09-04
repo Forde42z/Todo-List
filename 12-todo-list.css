@@ -55,7 +55,6 @@ body {
 .name-input::placeholder { color: #9ca3af; font-weight: 400; }
 .name-input:focus, .due-date-input:focus { background: white; border-color: #0a0a0a; box-shadow: 0 0 0 4px rgba(0,0,0,0.06); }
 .due-date-input { color: #374151; cursor: pointer; }
-.due-date-input::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.6; }
 
 .add-todo-button {
   background: #0a0a0a; color: white; border: 1.5px solid #0a0a0a; border-radius: 999px;
@@ -95,10 +94,11 @@ body {
 }
 .footer-hint .dot { opacity: 0.4; }
 
-/* --- MOBILE FIXED --- */
+/* --- MOBILE - DELETE BELOW --- */
 @media (max-width: 640px) {
   body { padding: 16px 16px max(24px, env(safe-area-inset-bottom)); min-height: 100dvh; }
   .box { margin-top: 12px; padding: 22px 18px 18px; border-radius: 20px; }
+  .title { font-size: 24px; }
 
   .todo-input-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
   .name-input, .due-date-input, .add-todo-button { font-size: 16px; min-height: 48px; }
@@ -109,17 +109,17 @@ body {
   .due-date-input:valid::-webkit-datetime-edit, .due-date-input:focus::-webkit-datetime-edit { color: #0a0a0a; }
   .add-todo-button { min-height: 52px; }
 
-  /* FIXED CARD - no more overlap */
+  /* Todo list now 1 column - delete goes below */
   .todo-grid {
     display: grid;
-    grid-template-columns: 1fr 92px;
+    grid-template-columns: 1fr;
     gap: 0;
-    align-items: stretch;
   }
+
   .js-todo-list > div:nth-child(3n+1) {
-    grid-column: 1 / -1;
-    margin-top: 12px;
-    padding: 14px 14px 8px;
+    grid-column: 1;
+    margin-top: 14px;
+    padding: 14px 14px 10px;
     border-radius: 14px 14px 0 0;
     border: 1px solid #f3f4f6;
     border-bottom: none;
@@ -133,27 +133,27 @@ body {
     background: #fafafa;
     border: 1px solid #f3f4f6;
     border-top: none;
-    border-right: none;
-    border-radius: 0 0 0 14px;
-    padding: 10px 14px;
+    border-bottom: none;
+    border-radius: 0;
+    padding: 0 14px 12px;
     font-size: 12px;
-    min-height: 52px;
-    display: flex;
-    align-items: center;
+    min-height: auto;
+    display: block;
   }
 
   .js-todo-list > div:nth-child(3n+3) {
-    grid-column: 2;
+    grid-column: 1;
     background: #fafafa;
     border: 1px solid #f3f4f6;
     border-top: none;
-    border-left: none;
-    border-radius: 0 0 14px 0;
-    padding: 8px 8px;
-    min-height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 0 0 14px 14px;
+    padding: 0 8px 8px;
+    display: block;
   }
-  .delete-todo-btn { min-height: 36px; padding: 8px 12px; width: auto; min-width: 72px; }
+
+  .delete-todo-btn {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 0;
+  }
 }
